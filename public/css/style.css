@@ -47,6 +47,17 @@ header.header {
   color: #007bff;
   border-bottom: 2px solid #007bff;
 }
+/*css footer*/
+footer.footer {
+  background-color: #333;      /* Màu nền đen xám */
+  color: #fff;                 /* Chữ trắng */
+  text-align: center;          /* Căn giữa nội dung */
+  padding: 10px 0;             /* Khoảng cách trên/dưới */
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
 /* css cua product index*/
 .product-item {
   border: 1px solid #eee;
@@ -92,3 +103,10 @@ header.header {
   font-weight: 500;
   font-size: 14px;
 }
+
+a.product-link {
+  text-decoration: none;
+  color: inherit; /* giữ màu chữ mặc định */
+  display: block; /* toàn bộ card click được */
+}
+

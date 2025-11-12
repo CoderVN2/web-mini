@@ -1,0 +1,37 @@
+mixin pagination(pagination)
+  nav
+    ul(class="pagination")
+      if(pagination.currenpage>1)
+        button(
+          class="page-link"
+          button-pagination=1
+        ) <<
+        button(
+          class="page-link"
+          button-pagination=pagination.currenpage-1
+        ) <
+      - let startPage = pagination.currenpage - 1;
+      - let endPage = pagination.currenpage + 1;
+      - if (startPage < 1) {
+      -   startPage = 1;
+      -   endPage = Math.min(3, pagination.totalPage);
+      - }
+      - if (endPage > pagination.totalPage) {
+      -   endPage = pagination.totalPage;
+      -   startPage = Math.max(1, endPage - 2);
+      - }
+      - for (var i = startPage; i <= endPage; i++)
+          li(class=`page-item ${pagination.currenpage == i ? "active" : ""}`)
+            button(
+              class="page-link"
+              button-pagination=i
+            ) #{i}
+      if(pagination.currenpage<pagination.totalPage)
+        button(
+          class="page-link"
+          button-pagination = pagination.currenpage+1
+        ) >
+        button(
+          class="page-link"
+          button-pagination = pagination.totalPage
+        ) >>

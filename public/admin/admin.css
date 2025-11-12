@@ -1,0 +1,189 @@
+/* ========== HEADER ========== */
+header.header {
+  background-color: #343a40;
+  color: white;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header.header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header.header a:hover {
+  text-decoration: underline;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  width: 180px;
+  background: #323232;
+  color: #fff;
+  height: calc(100vh - 56px); /* trừ chiều cao header */
+  position: fixed;
+  top: 56px; /* nằm ngay dưới header */
+  left: 0;
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
+.sidebar .inner-logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-link {
+  color: #ccc;
+  padding: 8px 0;
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+  background: #444;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+/* ========== MAIN CONTENT ========== */
+.main {
+  margin-top: 56px; /* tránh bị header che */
+  margin-left: 180px; /* tránh bị sidebar che */
+  padding: 20px;
+  width: calc(100% - 150px);
+  min-height: calc(100vh - 56px);
+  background: #fff;
+  box-sizing: border-box;
+}
+/* san pham*/
+.table {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.table th, .table td {
+  vertical-align: middle !important;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border: none;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border: none;
+}
+a.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a.bg-success {
+  background-color: #28a745; /* xanh */
+}
+
+a.bg-danger {
+  background-color: #dc3545; /* đỏ */
+}
+
+a.badge:hover {
+  opacity: 0.8;
+}
+/* Show Alert */
+[show-alert] {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  z-index: 9999;
+}
+
+[show-alert].alert-hidden {
+  animation-name: alert-hidden;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+  from {
+    right: 15px;
+    opacity: 1;
+  }
+  to {
+    right: -100%;
+    opacity: 0;
+    display: none;
+  }
+}
+[show-alert] [close-alert] {
+  background: #fff;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* End Show Alert */
+/*anh preview*/
+.preview-container {
+  display: block;      /* container nằm dưới nút chọn ảnh */
+  margin-top: 10px;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;  /* giúp nút X bám đúng góc ảnh */
+}
+
+#preview-image {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  
+}
+
+#remove-image-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+#remove-image-btn:hover {
+  background-color: darkred;
+}
+

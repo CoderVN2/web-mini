@@ -1,0 +1,22 @@
+mixin formchangmixin(path)
+  form(
+    action=path
+    method="POST"
+    id="form-change-mutil"
+    class="mb-3"
+  )
+    input(type="hidden" name="redirectUrl" value=originalUrl)
+
+    .d-flex.align-items-start
+      .form-group.me-2
+        select(name="type" class="form-control")
+          option(disabled selected) --Chọn Hành Động--
+          option(value="active") Hoạt động
+          option(value="inactive") Dừng hoạt động
+          option(value="deleted-all") Xóa 
+          option(value="change-position") Thay đổi vị trí
+      .form-group.me-2
+        input(type="hidden" name="ids" value="" class="form-control" placeholder="Nhập ID sản phẩm")
+      button(type="submit" class="btn btn-primary") Áp dụng
+       
+    block
