@@ -20,7 +20,7 @@ app.use(cookieParser('ADGJL'));
 app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 
-const port = process.env.port;
+const port = process.env.PORT;
 
 const route = require("./routes/client/index.route");
 const routeAdmin = require("./routes/admin/index.router");
