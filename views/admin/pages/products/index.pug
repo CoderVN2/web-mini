@@ -53,7 +53,7 @@ block main
                     input.form-check-input.id(type="checkbox", value=product.id)
                   td.text-center #{index + 1}
                   td.text-center
-                    img(src='/' + product.thumbnail, alt=product.title, width="80")
+                    img(src= product.thumbnail, alt=product.title, width="80")
                   td #{product.title}
                   td.text-center #{product.price}$
                   td.text-center 

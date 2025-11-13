@@ -1,10 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const controller = require("../../controllers/admin/products.controller")
-const storageMulter = require("../../helpers/storageMulter")
-const upload = multer({storage: storageMulter()});
-const validates= require("../../validate/admin/product.validate")
+const uploadcloud = require("../../middlewares/admin/uploadclound.middlewares");
+const controller = require("../../controllers/admin/products.controller");
+// const storageMulter = require("../../helpers/storageMulter")
+
+const validates= require("../../validate/admin/product.validate");
+//cau hinh cloundinary de up anh len onl
+
+const upload = multer();
 router.get("/",controller.products);
 router.patch("/change-status/:status/:id",controller.changestatus);
 router.patch("/change-mutil",controller.changesmutil);
@@ -13,8 +17,8 @@ router.delete("/delete/:id",controller.deleteItem);
 router.get("/create",controller.createItem);
 //upload anh len tren images 1 anh con aray la nhieu anh
 //validate de co the kiem tra coi co loi khong
-router.post("/create",upload.single('thumbnail'),validates.createPost,controller.createPost);
+router.post("/create",upload.single('thumbnail'),uploadcloud.upload,validates.createPost,controller.createPost);
 router.get("/edit/:id",controller.editItem)
-router.patch("/edit/:id",upload.single('thumbnail'),validates.createPost,controller.editPatch)
+router.patch("/edit/:id",upload.single('thumbnail'),uploadcloud.upload,validates.createPost,controller.editPatch)
 router.get("/detail/:id",controller.detailItem)
 module.exports = router;

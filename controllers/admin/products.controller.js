@@ -125,10 +125,7 @@ module.exports.createPost = async (req,res)=>{
   }else{
     req.body.position = parseInt(req.body.position);
   }
-  if(req.file){
-  // lay ten cua anh de hien thi anh
-  req.body.thumbnail = `images/${req.file.filename}`;
-  }
+
   const products = new Product(req.body);
   await products.save();
   res.redirect(`${config.prefixAdmin}/products/create`);
@@ -158,10 +155,7 @@ module.exports.editPatch= async(req,res)=>{
   req.body.stock = parseInt(req.body.stock);
   req.body.position = parseInt(req.body.position);
  
-  if(req.file){
-  // lay ten cua anh de hien thi anh
-  req.body.thumbnail = `images/${req.file.filename}`;
-  }
+
   try{
      await Product.updateOne({_id:req.params.id},req.body);
      req.flash("success",`Đã chỉnh sửa thành công`);

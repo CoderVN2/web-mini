@@ -40,7 +40,7 @@ block main
       input#thumbnail.form-control-file(type="file", name="thumbnail",accept="image/*",upload-image-input)
       .preview-container
         .image-wrapper      
-          img#preview-image(src='/' + product.thumbnail, upload-image-preview)
+          img#preview-image(src= product.thumbnail, upload-image-preview)
           button#remove-image-btn(type="button") X
 
     .form-group.mb-3
